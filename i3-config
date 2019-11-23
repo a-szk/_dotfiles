@@ -123,22 +123,8 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-#bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -b 'Yes, exit i3' 'i3-msg exit'"
-
-
-# set $trackpad "TrackPad:(E)nable (D)isable"
-# mode $trackpad{
-# 		bindsym d exec $psst xinput disable 12;mode "default"
-# 		bindsym e exec $psst xinput enable 12;mode "default"
-# }
-# bindsym $mod+Shift+t mode $trackpad
 
 # screenshot
-# bindsym $mod+p exec scrot -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/shots/'
-# bindsym --release $mod+p exec scrot -s -u '%Y%m%d_%H%M%S.png' -e 'mv $f ~/Pictures/shots/'
-# bindsym  $mod+p exec gnome-screenshot --area --release
-# bindsym $mod+p exec scrot -u '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
-# bindsym --release $mod+Shift+p exec scrot -s '%Y-%m-%d_$wx$h.png' -e 'mv $f ~/Pictures/Screenshots/'
 bindsym --release $mod+p exec gnome-screenshot
 bindsym --release $mod+Shift+p exec gnome-screenshot --area
 
@@ -185,7 +171,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-#?e???V???[?g?J?b?g
+# shortcut mode
 set $shortcut "press shortcut key"
 mode $shortcut{
 		bindsym c exec google-chrome; mode "default"
@@ -204,7 +190,7 @@ mode $shortcut{
 }
 bindsym $mod+u mode $shortcut
 
-#???ʒ???
+# sound mode
 set $soundtest "sound mode"
 mode $soundtest{
 		bindsym j exec pactl set-sink-volume 0 -5%
@@ -226,15 +212,10 @@ bar {
 	font pango:DejaVu Sans 16px
 }
 
-# ?N?????Ɏ��s?????R?}???h?Q
+# apps launch when i3 runs
 exec xrandr --output eDP-1-1 --auto --mode 1920x1080
 exec i3-sensible-terminal
 exec indicator-cpufreq
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-scale ~/yuji/wallpaper/cave_story_running_hell.jpg
 
-
-# ?ǂ?????.Xinitrc?Ƃ?rc.local?Ƃ??̃f?t?H???g?N???n?̃X?N???v?g?͊??{?I??i3?̋N?????ɂ͓????Ȃ??ۂ?
-# exec_always --no-startup-id bash /home/yujiyuki/dotfiles/startup_hhk.bash
-# exec_always --no-startup-id xmodmap /home/yujiyuki/dotfiles/_xmodmap_default
-# exec_always --no-startup-id /usr/bin/xmodmap /home/yujiyuki/dotfiles/_xmodmap_hhk
