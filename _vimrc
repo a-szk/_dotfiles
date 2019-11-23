@@ -48,11 +48,6 @@ function! ZenkakuSpace()
 	highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
 
-"シェルの指定(fishに変えた時にneobundleでバグった)
-" if $SHELL =~ 'fish'
-" 	set shell=/bin/sh
-" endif
-
 " 全角スペースの可視化
 if has('syntax')
 	augroup ZenkakuSpace
@@ -132,11 +127,6 @@ NeoBundle 'vim-jp/cpp-vim'
  let g:neocomplcache_dictionary_filetype_lists = {
      \ 'default' : ''
          \ }
-" 一旦しばらく:mksを使うことにします♨
-" "後に書いてあるセッションを保存を行うために必要なプラグイン
-" NeoBundle 'xolox/vim-session', {
-"       \ 'depends' : 'xolox/vim-misc',
-"       \ }	
 
 if has('nvim')
 	NeoBundle 'Shougo/deoplete.nvim'
@@ -175,9 +165,6 @@ if has('nvim')
 	" 検索時のハイライト，ESCを連打したら消えるようにする
 	nnoremap <ESC><ESC> :nohl<CR>
 
-	" :terminalで起動するshellの指定
-	" set sh=fish
-
 	" terminal mode中にコマンドモードの戻るためのデフォルトのキーバインドが<C-\><C-n>と厳しいのでESCにする
 	tnoremap <silent> <ESC> <C-\><C-n>
 	
@@ -191,15 +178,7 @@ if !has('gui_running')
 endif
 
 
-" if has('nvim')
-" 	"挿入モードでのカーソル移動(邪道という節もある)"
-" 	inoremap <C-j> <Down>
-" 	inoremap <C-k> <Up>
-" 	inoremap <C-h> <Left>
-" 	inoremap <C-l> <Right>
-" endif
 "easymotion
-"
 "space使う設定を行った場合にはvisualmode中に
 "space押すと一マス進んでしまい約立たないことがわかったので
 "ノーマル，ビジュアル，選択モードの類ではspaceを無効化します
@@ -251,207 +230,4 @@ if has("autocmd")
     \ endif
 endif
 """"""""""""""""""""""""""""""
-
-" 勝手にtex数式が本当の数式に変換されるやつ破壊したくなるので無効化
-let g:tex_conceal=''
-
-" vim-latex
-let g:Tex_AutoFolding=0
-let g:tex_flavor='platex'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_FormatDependency_pdf='dvi,pdf'
-let g:Tex_CompileRule_dvi='platex $*'
-let g:Tex_CompileRule_pdf='dvipdfmx $*.dvi'
-let g:Tex_ViewRule_pdf='evince'
-
-" latex-suiteカスタマイズ
-augroup MyIMAPs
-  au!
-" 例：
-" EALの入力で
-" \begin{align}
-" <++>
-" \label{eq:<++>}
-" \end{align}<++>
-" を出力する。
-  " au VimEnter *.tex call IMAP('TIN','\begin{align}\<++>\\label{eq:<++>}\\end{align}<++>','tex')
-
-
-" EM12で
-" \begin{bmatrix}
-" 	<++> & <++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM12','\begin{bmatrix}<++> & <++>\end{bmatrix}<++>','tex')
-  
-" EM21で
-" \begin{bmatrix}
-" 	<++>\\
-" 	<++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM21','\begin{bmatrix}<++>\\<++>\end{bmatrix}<++>','tex')
-
-" EM13で
-" \begin{bmatrix}
-" 	<++> & <++> & <++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM13','\begin{bmatrix}<++> & <++> & <++>\end{bmatrix}<++>','tex')
-
-" EM31で
-" \begin{bmatrix}
-" 	<++>\\
-" 	<++>\\
-" 	<++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM31','\begin{bmatrix}<++>\\<++>\\<++>\end{bmatrix}<++>','tex')
-
-" EM14で
-" \begin{bmatrix}
-" 	<++> & <++> & <++> & <++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM14','\begin{bmatrix}<++> & <++> & <++> & <++>\end{bmatrix}<++>','tex')
-
-" EM41で
-" \begin{bmatrix}
-" 	<++>\\
-" 	<++>\\
-" 	<++>\\
-" 	<++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM41','\begin{bmatrix}<++>\\<++>\\<++>\\<++>\end{bmatrix}<++>','tex')
-
-" EM22で
-" \begin{bmatrix}
-" 	<++> & <++> \\
-" 	<++> & <++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM22','\begin{bmatrix}<++> & <++> \\<++> & <++>\end{bmatrix}<++>','tex')
-
-" EM33で
-" \begin{bmatrix}
-" 	<++> & <++> & <++> \\
-" 	<++> & <++> & <++> \\
-" 	<++> & <++> & <++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM33','\begin{bmatrix}<++> & <++> & <++> \\<++> & <++> & <++> \\<++> & <++> & <++>\end{bmatrix}<++>','tex')
-
-" EM44で
-" \begin{bmatrix}
-" 	<++> & <++> & <++> & <++> \\
-" 	<++> & <++> & <++> & <++> \\
-" 	<++> & <++> & <++> & <++> \\
-" 	<++> & <++> & <++> & <++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM44','\begin{bmatrix}<++> & <++> & <++> & <++> \\<++> & <++> & <++> & <++> \\<++> & <++> & <++> & <++> \\<++> & <++> & <++> & <++>\end{bmatrix}<++>','tex')
-
-" EM55で
-" \begin{bmatrix}
-" 	<++> & <++> & <++> & <++> & <++> \\
-" 	<++> & <++> & <++> & <++> & <++> \\
-" 	<++> & <++> & <++> & <++> & <++> \\
-" 	<++> & <++> & <++> & <++> & <++> \\
-" 	<++> & <++> & <++> & <++> & <++>
-" \end{bmatrix}<++>
-" を出力
-  au VimEnter *.tex call IMAP('EM55','\begin{bmatrix}<++> & <++> & <++> & <++> & <++> \\<++> & <++> & <++> & <++> & <++> \\<++> <++> & & <++> & <++> & <++> \\<++> & <++> & <++> & <++> & <++>\\<++> & <++> & <++> & <++> & <++>\end{bmatrix}<++>','tex')
-"Environment Equnarray contains Equal No-number
-" EE(数字)で
-" \begin{eqnarray}
-"   <++>	&=&	<++>\\<++>\nonumber
-" \end{eqnarray}<++>
-" を数字個出力
-  au VimEnter *.tex call IMAP('EE1','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE2','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE3','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE4','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE5','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE6','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE7','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE8','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-  au VimEnter *.tex call IMAP('EE9','\begin{eqnarray}<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>	&=&	<++>	\nonumber\\<++>\end{eqnarray}<++>','tex')
-
-
-
-
-"Environment Equnarray contains Equal Yes-number
-" EEEYで
-" \begin{eqnarray}
-"   <++>	&	<++>\\
-"   <++>	&	<++>\\
-"   <++>	&	<++>
-" \end{eqnarray}<++>\
-" を出力
-  au VimEnter *.tex call IMAP('EE33','\begin{eqnarray}<++>	&	<++>\\<++>	&	<++>\\<++>	&	<++>\end{eqnarray}<++>','tex')
-
-
-
-
-
-
-" `pの入力で^/primeを書き込む，などなど
-  " au VimEnter *.tex call IMAP('`p', '^\prime', 'tex') 
-  " au VimEnter *.tex call IMAP('`P', '\prime', 'tex') 
-  " au VimEnter *.tex call IMAP('`o', '\omega', 'tex') 
-augroup END
-
-
-
-
-
-" --------------------
-"
-"  vim-session
-"
-" --------------------
-" " 現在のディレクトリ直下の .vimsessions/ を取得
-" let s:local_session_directory = xolox#misc#path#merge(getcwd(), '.vimsessions')
-" if isdirectory(s:local_session_directory)
-"   " session保存ディレクトリをそのディレクトリの設定
-"   let g:session_directory = s:local_session_directory
-"   " vim終了時に自動保存
-"   " let g:session_autosave = 'yes'
-"   " 引数なしでvimを起動した時にsession保存ディレクトリのdefault.vimを開く
-"   let g:session_autoload = 'yes'
-"   " 5分間に1回自動保存
-"   " let g:session_autosave_periodic = 5
-" else
-"   let g:session_autosave = 'no'
-"   let g:session_autoload = 'no'
-" endif
-" unlet s:local_session_directory
-
-
-"和英・英和翻訳を行う"
-function! s:DictionaryTranslate(...)
-    let l:word = a:0 == 0 ? expand('<cword>') : a:1
-    call histadd('cmd', 'DictionaryTranslate '  . l:word)
-    if l:word ==# '' | return | endif
-    let l:gene_path = '~/.vim/dict/gene.txt'
-    let l:jpn_to_eng = l:word !~? '^[a-z_]\+$'
-    let l:output_option = l:jpn_to_eng ? '-B 1' : '-A 1' " 和英 or 英和
-
-    silent pedit Translate\ Result | wincmd P | %delete " 前の結果が残っていることがあるため
-    setlocal buftype=nofile noswapfile modifiable
-    silent execute 'read !grep -ihw' l:output_option l:word l:gene_path
-    silent 0delete
-    let l:esc = @z
-    let @z = ''
-    while search("^" . l:word . "$", "Wc") > 0 " 完全一致したものを上部に移動
-        silent execute line('.') - l:jpn_to_eng . "delete Z 2"
-    endwhile
-    silent 0put z
-    let @z = l:esc
-    silent call append(line('.'), '==')
-    silent 1delete
-    silent wincmd p
-endfunction
-command! -nargs=? -complete=command DictionaryTranslate call <SID>DictionaryTranslate(<f-args>)
 
