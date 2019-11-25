@@ -207,18 +207,19 @@ endif
 
 map <C-e> :NERDTreeToggle<CR>
 
-function! s:clang_format()
+function! Clang_format()
   let now_line = line(".")
   exec ":%! clang-format"
   exec ":" . now_line
 endfunction
 
-if executable('clang-format')
-  augroup cpp_clang_format
-    autocmd!
-    autocmd BufWrite,FileWritePre,FileAppendPre *.[ch]pp call s:clang_format()
-  augroup END
-endif
+map <C-f> :call Clang_format()<CR>
+" if executable('clang-format')
+"   augroup cpp_clang_format
+"     autocmd!
+"     autocmd BufWrite,FileWritePre,FileAppendPre *.cpp|*.h call Clang_format()
+"   augroup END
+" endif
 
 """"""""""""""""""""""""""""""
 " 最後のカーソル位置を復元する
