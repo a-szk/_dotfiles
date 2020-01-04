@@ -215,7 +215,8 @@ bar {
 # apps launch when i3 runs
 exec xrandr --output eDP-1-1 --auto --mode 1920x1080
 exec i3-sensible-terminal
-exec indicator-cpufreq
+exec --no-startup-id indicator-cpufreq
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-scale ~/yuji/wallpaper/cave_story_running_hell.jpg
-
+exec --no-startup-id xset dpms 0 0 0; xset s off
+exec --no-startup-id blueman-manager
