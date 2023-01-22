@@ -1,9 +1,9 @@
 cpp-vim
+deoplete.nvim
 hardmode
 jellybeans.vim
 lightline.vim
 neobundle.vim
-neocomplcache
 neomru.vim
 nerdtree
 syntastic

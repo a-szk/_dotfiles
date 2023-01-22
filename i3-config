@@ -178,11 +178,10 @@ mode $shortcut{
 		bindsym f exec firefox; mode "default"
 		bindsym m exec matlab; mode "default"
 		bindsym z exec nautilus --no-desktop; mode "default"
-		bindsym x exec gnome-terminal -e 'bash -c "vifm"'; mode "default"
-		bindsym e exec evince; mode "default"
-		
-		bindsym h exec xmodmap ~/dotfiles/_xmodmap_hhk; mode "default"
-		bindsym l exec xmodmap ~/dotfiles/_xmodmap_lab; mode "default"
+		# bindsym x exec gnome-terminal -e 'bash -c "vifm"'; mode "default"
+		# bindsym e exec evince; mode "default"
+		# bindsym h exec xmodmap ~/dotfiles/_xmodmap_hhk; mode "default"
+		# bindsym l exec xmodmap ~/dotfiles/_xmodmap_lab; mode "default"
 
         # back to normal
         bindsym q mode "default"
@@ -193,10 +192,10 @@ bindsym $mod+u mode $shortcut
 # sound mode
 set $soundtest "sound mode"
 mode $soundtest{
-		bindsym j exec pactl set-sink-volume 0 -5%
-		bindsym k exec pactl set-sink-volume 0 +5%
-		bindsym Return exec pactl set-sink-mute 0 0
-		bindsym BackSpace exec pactl set-sink-mute 0 1
+		bindsym j exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%
+		bindsym k exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%
+		bindsym Return exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 0
+		bindsym BackSpace exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 1
 
         # back to normal
         bindsym q mode "default"
@@ -209,7 +208,7 @@ bindsym $mod+m mode $soundtest
 # finds out, if available)
 bar {
         status_command i3status
-	font pango:DejaVu Sans 16px
+	font pango:DejaVu Sans 24px
 }
 
 # apps launch when i3 runs
@@ -217,7 +216,7 @@ exec xrandr --output eDP-1-1 --auto --mode 1920x1080
 exec i3-sensible-terminal
 exec --no-startup-id indicator-cpufreq
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
-exec --no-startup-id feh --bg-scale ~/yuji/_dotfiles/wallpaper/cave_story_running_hell.jpg
+exec --no-startup-id feh --bg-scale ~/_dotfiles/wallpaper/cave_story_running_hell.jpg
 exec --no-startup-id xset dpms 0 0 0; xset s off
 exec --no-startup-id blueman-manager
 exec --no-startup-id kmix

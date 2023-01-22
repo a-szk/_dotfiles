@@ -16,8 +16,8 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
-HISTSIZE=1000
-HISTFILESIZE=2000
+HISTSIZE=10000000
+HISTFILESIZE=20000000
 
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
@@ -115,3 +115,24 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# a-suzuki utils
+alias vim="nvim"
+alias cliphist="history 2|head -1|cut -c 8-|xsel -bi"
+alias ch="history 2|head -1|cut -c 8-|xsel-bi"
+alias px="pwd|xsel -bi"
+alias cx="cd 'xsel -bo'"
+alias diff="colordiff -u"
+
+alias tl1="tree -L 1"
+alias tl2="tree -L 2"
+alias tl3="tree -L 3"
+alias tl4="tree -L 4"
+alias tl5="tree -L 5"
+alias tl6="tree -L 6"
+alias tl7="tree -L 7"
+alias tl8="tree -L 8"
+alias tl9="tree -L 9"
+alias scd="cd"
+
+xset s off -dpms
