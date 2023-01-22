@@ -1705,6 +1705,10 @@ Enter filter criterion [field&lt;space&gt;value]:
       completion list.
      </para>
      <para>
+      Afterwards, &ls; scans recursively in <literal>\include</literal>d
+      and <literal>\input</literal>ed files.
+     </para>
+     <para>
       You can set the location where &ls; will search for
       <literal>.bib</literal> files using the
       <link
@@ -2460,6 +2464,10 @@ and some more text on the next line
 and some more text
 }</programlisting>
       will not be folded. This is a bug which is very difficult to fix.
+     </para>
+     <para>
+      Similarly, a command fold will stop at the first line containing a '}',
+      even if this brace does not correspond to the opening brace of the command.
      </para>
     </note>
     <para>

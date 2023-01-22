@@ -136,13 +136,13 @@
 'g:syntastic_ocaml_use_ocamlbuild'	syntastic-checkers.txt	/*'g:syntastic_ocaml_use_ocamlbuild'*
 'g:syntastic_ocaml_use_ocamlc'	syntastic-checkers.txt	/*'g:syntastic_ocaml_use_ocamlc'*
 'g:syntastic_pc_lint_config_file'	syntastic-checkers.txt	/*'g:syntastic_pc_lint_config_file'*
-'g:syntastic_perl6_lib_path'	syntastic-checkers.txt	/*'g:syntastic_perl6_lib_path'*
 'g:syntastic_perl_interpreter'	syntastic-checkers.txt	/*'g:syntastic_perl_interpreter'*
 'g:syntastic_perl_lib_path'	syntastic-checkers.txt	/*'g:syntastic_perl_lib_path'*
 'g:syntastic_perl_perlcritic_thres'	syntastic-checkers.txt	/*'g:syntastic_perl_perlcritic_thres'*
 'g:syntastic_python_python_use_codec'	syntastic-checkers.txt	/*'g:syntastic_python_python_use_codec'*
 'g:syntastic_r_lintr_cache'	syntastic-checkers.txt	/*'g:syntastic_r_lintr_cache'*
 'g:syntastic_r_lintr_linters'	syntastic-checkers.txt	/*'g:syntastic_r_lintr_linters'*
+'g:syntastic_raku_lib_path'	syntastic-checkers.txt	/*'g:syntastic_raku_lib_path'*
 'g:syntastic_rst_sphinx_config_dir'	syntastic-checkers.txt	/*'g:syntastic_rst_sphinx_config_dir'*
 'g:syntastic_rst_sphinx_source_dir'	syntastic-checkers.txt	/*'g:syntastic_rst_sphinx_source_dir'*
 'g:syntastic_ruby_exec'	syntastic-checkers.txt	/*'g:syntastic_ruby_exec'*
@@ -162,8 +162,6 @@
 'g:syntastic_svg_w3_doctype'	syntastic-checkers.txt	/*'g:syntastic_svg_w3_doctype'*
 'g:syntastic_svg_w3_exec'	syntastic-checkers.txt	/*'g:syntastic_svg_w3_exec'*
 'g:syntastic_tex_chktex_showmsgs'	syntastic-checkers.txt	/*'g:syntastic_tex_chktex_showmsgs'*
-'g:syntastic_vala_modules'	syntastic-checkers.txt	/*'g:syntastic_vala_modules'*
-'g:syntastic_vala_vapi_dirs'	syntastic-checkers.txt	/*'g:syntastic_vala_vapi_dirs'*
 'g:syntastic_verapp_config_file'	syntastic-checkers.txt	/*'g:syntastic_verapp_config_file'*
 'g:syntastic_verilog_compiler'	syntastic-checkers.txt	/*'g:syntastic_verilog_compiler'*
 'g:syntastic_verilog_compiler_options'	syntastic-checkers.txt	/*'g:syntastic_verilog_compiler_options'*
@@ -229,6 +227,7 @@
 :NERDTreeMirror	NERDTree.txt	/*:NERDTreeMirror*
 :NERDTreeRefreshRoot	NERDTree.txt	/*:NERDTreeRefreshRoot*
 :NERDTreeToggle	NERDTree.txt	/*:NERDTreeToggle*
+:NERDTreeToggleVCS	NERDTree.txt	/*:NERDTreeToggleVCS*
 :NERDTreeVCS	NERDTree.txt	/*:NERDTreeVCS*
 :Neco	neocomplcache.txt	/*:Neco*
 :NeoBundle	neobundle.txt	/*:NeoBundle*
@@ -480,6 +479,8 @@ Alt-L	latex-suite.txt	/*Alt-L*
 EMCommandLineMap	easymotion.txt	/*EMCommandLineMap*
 EMCommandLineNoreMap	easymotion.txt	/*EMCommandLineNoreMap*
 EMCommandLineUnMap	easymotion.txt	/*EMCommandLineUnMap*
+EasyMotionPromptBegin	easymotion.txt	/*EasyMotionPromptBegin*
+EasyMotionPromptEnd	easymotion.txt	/*EasyMotionPromptEnd*
 EasyMotion_do_mapping	easymotion.txt	/*EasyMotion_do_mapping*
 EasyMotion_do_shade	easymotion.txt	/*EasyMotion_do_shade*
 EasyMotion_enter_jump_first	easymotion.txt	/*EasyMotion_enter_jump_first*
@@ -631,6 +632,7 @@ NERDTreeShowHidden	NERDTree.txt	/*NERDTreeShowHidden*
 NERDTreeShowLineNumbers	NERDTree.txt	/*NERDTreeShowLineNumbers*
 NERDTreeSortOrder	NERDTree.txt	/*NERDTreeSortOrder*
 NERDTreeStatusline	NERDTree.txt	/*NERDTreeStatusline*
+NERDTreeUseTCD	NERDTree.txt	/*NERDTreeUseTCD*
 NERDTreeWinPos	NERDTree.txt	/*NERDTreeWinPos*
 NERDTreeWinSize	NERDTree.txt	/*NERDTreeWinSize*
 Plug_IMAP_DeleteAndJumBack	latex-suite.txt	/*Plug_IMAP_DeleteAndJumBack*
@@ -764,6 +766,7 @@ default-folding	latex-suite.txt	/*default-folding*
 diacritic-mappings	latex-suite.txt	/*diacritic-mappings*
 dictionary_complete	neocomplcache.txt	/*dictionary_complete*
 easymotion	easymotion.txt	/*easymotion*
+easymotion-autocommands	easymotion.txt	/*easymotion-autocommands*
 easymotion-command-line	easymotion.txt	/*easymotion-command-line*
 easymotion-configuration	easymotion.txt	/*easymotion-configuration*
 easymotion-contents	easymotion.txt	/*easymotion-contents*
@@ -970,12 +973,14 @@ g:tcomment#replacements_c	tcomment.txt	/*g:tcomment#replacements_c*
 g:tcomment#replacements_xml	tcomment.txt	/*g:tcomment#replacements_xml*
 g:tcomment#rstrip_on_uncomment	tcomment.txt	/*g:tcomment#rstrip_on_uncomment*
 g:tcomment#syntax#substitute	tcomment.txt	/*g:tcomment#syntax#substitute*
+g:tcomment_map_modifier	tcomment.txt	/*g:tcomment_map_modifier*
 g:tcomment_mapleader1	tcomment.txt	/*g:tcomment_mapleader1*
 g:tcomment_mapleader2	tcomment.txt	/*g:tcomment_mapleader2*
 g:tcomment_mapleader_comment_anyway	tcomment.txt	/*g:tcomment_mapleader_comment_anyway*
 g:tcomment_mapleader_uncomment_anyway	tcomment.txt	/*g:tcomment_mapleader_uncomment_anyway*
 g:tcomment_maps	tcomment.txt	/*g:tcomment_maps*
 g:tcomment_opleader1	tcomment.txt	/*g:tcomment_opleader1*
+g:tcomment_opmap_modifier	tcomment.txt	/*g:tcomment_opmap_modifier*
 g:tcomment_types	tcomment.txt	/*g:tcomment_types*
 g:unite_abbr_highlight	unite.txt	/*g:unite_abbr_highlight*
 g:unite_colorscheme_blacklist	unite-colorscheme.txt	/*g:unite_colorscheme_blacklist*
@@ -1190,17 +1195,13 @@ lightline#statusline()	lightline.txt	/*lightline#statusline()*
 lightline#tabline()	lightline.txt	/*lightline#tabline()*
 lightline#toggle()	lightline.txt	/*lightline#toggle()*
 lightline#update()	lightline.txt	/*lightline#update()*
-lightline#update_once()	lightline.txt	/*lightline#update_once()*
 lightline-colorscheme	lightline.txt	/*lightline-colorscheme*
 lightline-component-expansion	lightline.txt	/*lightline-component-expansion*
 lightline-contents	lightline.txt	/*lightline-contents*
 lightline-examples	lightline.txt	/*lightline-examples*
-lightline-font	lightline.txt	/*lightline-font*
 lightline-function	lightline.txt	/*lightline-function*
 lightline-introduction	lightline.txt	/*lightline-introduction*
-lightline-nice-examples	lightline.txt	/*lightline-nice-examples*
 lightline-option	lightline.txt	/*lightline-option*
-lightline-powerful-example	lightline.txt	/*lightline-powerful-example*
 lightline-problem-1	lightline.txt	/*lightline-problem-1*
 lightline-problem-10	lightline.txt	/*lightline-problem-10*
 lightline-problem-11	lightline.txt	/*lightline-problem-11*
@@ -1215,9 +1216,6 @@ lightline-problem-3	lightline.txt	/*lightline-problem-3*
 lightline-problem-4	lightline.txt	/*lightline-problem-4*
 lightline-problem-5	lightline.txt	/*lightline-problem-5*
 lightline-problem-6	lightline.txt	/*lightline-problem-6*
-lightline-problem-7	lightline.txt	/*lightline-problem-7*
-lightline-problem-8	lightline.txt	/*lightline-problem-8*
-lightline-problem-9	lightline.txt	/*lightline-problem-9*
 lightline-spirit	lightline.txt	/*lightline-spirit*
 lightline-troubleshooting	lightline.txt	/*lightline-troubleshooting*
 lightline.txt	lightline.txt	/*lightline.txt*
@@ -1974,7 +1972,6 @@ syntastic-checkers-html	syntastic-checkers.txt	/*syntastic-checkers-html*
 syntastic-checkers-java	syntastic-checkers.txt	/*syntastic-checkers-java*
 syntastic-checkers-javascript	syntastic-checkers.txt	/*syntastic-checkers-javascript*
 syntastic-checkers-json	syntastic-checkers.txt	/*syntastic-checkers-json*
-syntastic-checkers-julia	syntastic-checkers.txt	/*syntastic-checkers-julia*
 syntastic-checkers-lang	syntastic-checkers.txt	/*syntastic-checkers-lang*
 syntastic-checkers-less	syntastic-checkers.txt	/*syntastic-checkers-less*
 syntastic-checkers-lex	syntastic-checkers.txt	/*syntastic-checkers-lex*
@@ -1992,7 +1989,6 @@ syntastic-checkers-objc	syntastic-checkers.txt	/*syntastic-checkers-objc*
 syntastic-checkers-objcpp	syntastic-checkers.txt	/*syntastic-checkers-objcpp*
 syntastic-checkers-ocaml	syntastic-checkers.txt	/*syntastic-checkers-ocaml*
 syntastic-checkers-perl	syntastic-checkers.txt	/*syntastic-checkers-perl*
-syntastic-checkers-perl6	syntastic-checkers.txt	/*syntastic-checkers-perl6*
 syntastic-checkers-php	syntastic-checkers.txt	/*syntastic-checkers-php*
 syntastic-checkers-po	syntastic-checkers.txt	/*syntastic-checkers-po*
 syntastic-checkers-pod	syntastic-checkers.txt	/*syntastic-checkers-pod*
@@ -2002,6 +1998,7 @@ syntastic-checkers-python	syntastic-checkers.txt	/*syntastic-checkers-python*
 syntastic-checkers-qml	syntastic-checkers.txt	/*syntastic-checkers-qml*
 syntastic-checkers-r	syntastic-checkers.txt	/*syntastic-checkers-r*
 syntastic-checkers-racket	syntastic-checkers.txt	/*syntastic-checkers-racket*
+syntastic-checkers-raku	syntastic-checkers.txt	/*syntastic-checkers-raku*
 syntastic-checkers-rmd	syntastic-checkers.txt	/*syntastic-checkers-rmd*
 syntastic-checkers-rnc	syntastic-checkers.txt	/*syntastic-checkers-rnc*
 syntastic-checkers-rst	syntastic-checkers.txt	/*syntastic-checkers-rst*
@@ -2025,7 +2022,6 @@ syntastic-checkers-trig	syntastic-checkers.txt	/*syntastic-checkers-trig*
 syntastic-checkers-turtle	syntastic-checkers.txt	/*syntastic-checkers-turtle*
 syntastic-checkers-twig	syntastic-checkers.txt	/*syntastic-checkers-twig*
 syntastic-checkers-typescript	syntastic-checkers.txt	/*syntastic-checkers-typescript*
-syntastic-checkers-vala	syntastic-checkers.txt	/*syntastic-checkers-vala*
 syntastic-checkers-verilog	syntastic-checkers.txt	/*syntastic-checkers-verilog*
 syntastic-checkers-vhdl	syntastic-checkers.txt	/*syntastic-checkers-vhdl*
 syntastic-checkers-vim	syntastic-checkers.txt	/*syntastic-checkers-vim*
@@ -2160,10 +2156,8 @@ syntastic-javascript-standard	syntastic-checkers.txt	/*syntastic-javascript-stan
 syntastic-javascript-tern_lint	syntastic-checkers.txt	/*syntastic-javascript-tern_lint*
 syntastic-json-jsonlint	syntastic-checkers.txt	/*syntastic-json-jsonlint*
 syntastic-json-jsonval	syntastic-checkers.txt	/*syntastic-json-jsonval*
-syntastic-julia-lint	syntastic-checkers.txt	/*syntastic-julia-lint*
 syntastic-less-lessc	syntastic-checkers.txt	/*syntastic-less-lessc*
 syntastic-less-recess	syntastic-checkers.txt	/*syntastic-less-recess*
-syntastic-less-stylelint	syntastic-checkers.txt	/*syntastic-less-stylelint*
 syntastic-lex-flex	syntastic-checkers.txt	/*syntastic-lex-flex*
 syntastic-license	syntastic.txt	/*syntastic-license*
 syntastic-limbo-limbo	syntastic-checkers.txt	/*syntastic-limbo-limbo*
@@ -2193,7 +2187,6 @@ syntastic-ocaml-camlp4o	syntastic-checkers.txt	/*syntastic-ocaml-camlp4o*
 syntastic-perl-perl	syntastic-checkers.txt	/*syntastic-perl-perl*
 syntastic-perl-perlcritic	syntastic-checkers.txt	/*syntastic-perl-perlcritic*
 syntastic-perl-podchecker	syntastic-checkers.txt	/*syntastic-perl-podchecker*
-syntastic-perl6-perl6	syntastic-checkers.txt	/*syntastic-perl6-perl6*
 syntastic-php-php	syntastic-checkers.txt	/*syntastic-php-php*
 syntastic-php-phpcs	syntastic-checkers.txt	/*syntastic-php-phpcs*
 syntastic-php-phplint	syntastic-checkers.txt	/*syntastic-php-phplint*
@@ -2228,6 +2221,7 @@ syntastic-r-lintr	syntastic-checkers.txt	/*syntastic-r-lintr*
 syntastic-r-svtools	syntastic-checkers.txt	/*syntastic-r-svtools*
 syntastic-racket-code-ayatollah	syntastic-checkers.txt	/*syntastic-racket-code-ayatollah*
 syntastic-racket-racket	syntastic-checkers.txt	/*syntastic-racket-racket*
+syntastic-raku-raku	syntastic-checkers.txt	/*syntastic-raku-raku*
 syntastic-recommended	syntastic.txt	/*syntastic-recommended*
 syntastic-rmd-lintr	syntastic-checkers.txt	/*syntastic-rmd-lintr*
 syntastic-rnc-rnv	syntastic-checkers.txt	/*syntastic-rnc-rnv*
@@ -2242,6 +2236,7 @@ syntastic-ruby-mri	syntastic-checkers.txt	/*syntastic-ruby-mri*
 syntastic-ruby-reek	syntastic-checkers.txt	/*syntastic-ruby-reek*
 syntastic-ruby-rubocop	syntastic-checkers.txt	/*syntastic-ruby-rubocop*
 syntastic-ruby-rubylint	syntastic-checkers.txt	/*syntastic-ruby-rubylint*
+syntastic-ruby-sorbet	syntastic-checkers.txt	/*syntastic-ruby-sorbet*
 syntastic-sass-sass	syntastic-checkers.txt	/*syntastic-sass-sass*
 syntastic-sass-sass_lint	syntastic-checkers.txt	/*syntastic-sass-sass_lint*
 syntastic-sass-sassc	syntastic-checkers.txt	/*syntastic-sass-sassc*
@@ -2253,12 +2248,12 @@ syntastic-scss-sass	syntastic-checkers.txt	/*syntastic-scss-sass*
 syntastic-scss-sass_lint	syntastic-checkers.txt	/*syntastic-scss-sass_lint*
 syntastic-scss-sassc	syntastic-checkers.txt	/*syntastic-scss-sassc*
 syntastic-scss-scss_lint	syntastic-checkers.txt	/*syntastic-scss-scss_lint*
-syntastic-scss-stylelint	syntastic-checkers.txt	/*syntastic-scss-stylelint*
 syntastic-sessions	syntastic.txt	/*syntastic-sessions*
 syntastic-sh-bashate	syntastic-checkers.txt	/*syntastic-sh-bashate*
 syntastic-sh-checkbashisms	syntastic-checkers.txt	/*syntastic-sh-checkbashisms*
 syntastic-sh-sh	syntastic-checkers.txt	/*syntastic-sh-sh*
 syntastic-sh-shellcheck	syntastic-checkers.txt	/*syntastic-sh-shellcheck*
+syntastic-sh-shfmt	syntastic-checkers.txt	/*syntastic-sh-shfmt*
 syntastic-shellslash	syntastic.txt	/*syntastic-shellslash*
 syntastic-slim-slim_lint	syntastic-checkers.txt	/*syntastic-slim-slim_lint*
 syntastic-slim-slimrb	syntastic-checkers.txt	/*syntastic-slim-slimrb*
@@ -2287,11 +2282,11 @@ syntastic-text-textlint	syntastic-checkers.txt	/*syntastic-text-textlint*
 syntastic-trig-rapper	syntastic-checkers.txt	/*syntastic-trig-rapper*
 syntastic-turtle-rapper	syntastic-checkers.txt	/*syntastic-turtle-rapper*
 syntastic-turtle-ttl	syntastic-checkers.txt	/*syntastic-turtle-ttl*
+syntastic-twig-twigcs	syntastic-checkers.txt	/*syntastic-twig-twigcs*
 syntastic-twig-twiglint	syntastic-checkers.txt	/*syntastic-twig-twiglint*
 syntastic-typescript-eslint	syntastic-checkers.txt	/*syntastic-typescript-eslint*
 syntastic-typescript-lynt	syntastic-checkers.txt	/*syntastic-typescript-lynt*
 syntastic-typescript-tslint	syntastic-checkers.txt	/*syntastic-typescript-tslint*
-syntastic-vala-valac	syntastic-checkers.txt	/*syntastic-vala-valac*
 syntastic-verilog-iverilog	syntastic-checkers.txt	/*syntastic-verilog-iverilog*
 syntastic-verilog-verilator	syntastic-checkers.txt	/*syntastic-verilog-verilator*
 syntastic-vhdl-ghdl	syntastic-checkers.txt	/*syntastic-vhdl-ghdl*
@@ -2303,6 +2298,7 @@ syntastic-vim-vint	syntastic-checkers.txt	/*syntastic-vim-vint*
 syntastic-vim-virtualenv	syntastic.txt	/*syntastic-vim-virtualenv*
 syntastic-vue-eslint	syntastic-checkers.txt	/*syntastic-vue-eslint*
 syntastic-vue-pug_lint_vue	syntastic-checkers.txt	/*syntastic-vue-pug_lint_vue*
+syntastic-vue-stylelint	syntastic-checkers.txt	/*syntastic-vue-stylelint*
 syntastic-xhtml-jshint	syntastic-checkers.txt	/*syntastic-xhtml-jshint*
 syntastic-xhtml-proselint	syntastic-checkers.txt	/*syntastic-xhtml-proselint*
 syntastic-xhtml-tidy	syntastic-checkers.txt	/*syntastic-xhtml-tidy*
