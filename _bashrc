@@ -116,10 +116,11 @@ if ! shopt -oq posix; then
   fi
 fi
 
+
 # a-suzuki utils
 alias vim="nvim"
 alias cliphist="history 2|head -1|cut -c 8-|xsel -bi"
-alias ch="history 2|head -1|cut -c 8-|xsel-bi"
+alias ch="history 2|head -1|cut -c 8-|xsel -bi"
 alias px="pwd|xsel -bi"
 alias cx="cd 'xsel -bo'"
 alias diff="colordiff -u"
@@ -136,3 +137,5 @@ alias tl9="tree -L 9"
 alias scd="cd"
 
 xset s off -dpms
+
+MESA_LOADER_DRIVER_OVERRIDE=i965
