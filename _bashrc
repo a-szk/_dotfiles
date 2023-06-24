@@ -137,5 +137,3 @@ alias tl9="tree -L 9"
 alias scd="cd"
 
 xset s off -dpms
-
-MESA_LOADER_DRIVER_OVERRIDE=i965
