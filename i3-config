@@ -113,11 +113,6 @@ bindsym $mod+Shift+9 move container to workspace 9
 bindsym $mod+Shift+0 move container to workspace 10
 
 
-# Pulse Audio controls
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
-bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
-
 # reload the configuration file
 bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -177,33 +172,13 @@ mode $shortcut{
 		bindsym c exec google-chrome; mode "default"
 		bindsym f exec firefox; mode "default"
 		bindsym m exec matlab; mode "default"
-		# bindsym z exec nautilus --no-desktop; mode "default"
 		bindsym z exec nautilus -w; mode "default"
-		# bindsym x exec gnome-terminal -e 'bash -c "vifm"'; mode "default"
-		# bindsym e exec evince; mode "default"
-		# bindsym h exec xmodmap ~/dotfiles/_xmodmap_hhk; mode "default"
-		# bindsym l exec xmodmap ~/dotfiles/_xmodmap_lab; mode "default"
 
         # back to normal
         bindsym q mode "default"
         bindsym Escape mode "default"
 }
 bindsym $mod+u mode $shortcut
-
-# sound mode
-set $soundtest "sound mode"
-mode $soundtest{
-		bindsym j exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo -5%
-		bindsym k exec pactl set-sink-volume alsa_output.pci-0000_00_1f.3.analog-stereo +5%
-		bindsym Return exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 0
-		bindsym BackSpace exec pactl set-sink-mute alsa_output.pci-0000_00_1f.3.analog-stereo 1
-
-        # back to normal
-        bindsym q mode "default"
-        bindsym Escape mode "default"
-}
-bindsym $mod+m mode $soundtest
-
 
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
@@ -219,5 +194,3 @@ exec --no-startup-id indicator-cpufreq
 exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-scale ~/_dotfiles/wallpaper/cave_story_running_hell.jpg
 exec --no-startup-id xset dpms 0 0 0; xset s off
-exec --no-startup-id blueman-manager
-exec --no-startup-id kmix
