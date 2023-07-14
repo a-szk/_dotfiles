@@ -116,13 +116,18 @@ if ! shopt -oq posix; then
   fi
 fi
 
+# individual custom
+if [ -d "$HOME/bin" ] ; then
+    PATH="$HOME/bin:$PATH"
+fi
 
-# a-suzuki utils
+export EDITOR=nvim
+
 alias vim="nvim"
 alias cliphist="history 2|head -1|cut -c 8-|xsel -bi"
 alias ch="history 2|head -1|cut -c 8-|xsel -bi"
 alias px="pwd|xsel -bi"
-alias cx="cd 'xsel -bo'"
+alias cx="cd `xsel -bo`"
 alias diff="colordiff -u"
 
 alias tl1="tree -L 1"
@@ -134,6 +139,6 @@ alias tl6="tree -L 6"
 alias tl7="tree -L 7"
 alias tl8="tree -L 8"
 alias tl9="tree -L 9"
-alias scd="cd"
 
 xset s off -dpms
+
