@@ -1,41 +1,46 @@
-"set number
-set relativenumber
-set number
+if exists('g:vscode')
+  " VSCode extension
+else
+  " ordinary Neovim
+
+  "set number
+  set relativenumber
+  set number
+  " カーソルを基本的に画面中央に保つ
+  set scrolloff=1000
+  
+  set encoding=utf-8
+  set fileencodings=utf-8
+  " set fileencodings=iso-2022-jp,cp932,sjis,enc-jp,utf-8
+  set statusline=2
+  set laststatus=2
+  
+  "全角記号
+  set ambiwidth=double
+  
+  "オートインデント時のシフト幅(tabstopと同じにしておくといい)
+  set shiftwidth=4
+  
+  "foldが現時点で邪魔だと感じたため
+  set nofoldenable
+  
+  "不可視文字の表示
+  set list
+  set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
+  
+  "set list
+  set tabstop=4
+  set shiftwidth=4
+  set softtabstop=0
+  set expandtab
+  set smarttab
+  set shiftround
+endif
+
+
+
 " カーソルを基本的に画面中央に保つ
 set scrolloff=1000
-
-set encoding=utf-8
-set fileencodings=utf-8
-" set fileencodings=iso-2022-jp,cp932,sjis,enc-jp,utf-8
-set statusline=2
-set laststatus=2
-
-"全角記号
-set ambiwidth=double
-
-"オートインデント時のシフト幅(tabstopと同じにしておくといい)
-set shiftwidth=4
-
-"foldが現時点で邪魔だと感じたため
-set nofoldenable
-
-"不可視文字の表示
-set list
-set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
-
-"set list
-set tabstop=2
-set shiftwidth=2
-set softtabstop=0
-set expandtab
-set smarttab
-set shiftround
-
-" IMEがfcitxの場合に限り，全角入力からノーマルに戻ったときに半角に戻す
-function! ImInActivate()
-  call system('fcitx-remote -c')
-endfunction
-inoremap <silent> <C-[> <ESC>:call ImInActivate()<CR>
 
 " clipboardを共有
 set clipboard=unnamed,unnamedplus
@@ -55,7 +60,6 @@ if has('syntax')
 	augroup END
 	call ZenkakuSpace()
 endif
-
 let g:python_host_prog='/usr/bin/python2'
 let g:python3_host_prog='/usr/bin/python3'
 
@@ -81,6 +85,7 @@ NeoBundle 'tomtom/tcomment_vim'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'nanotech/jellybeans.vim'
 NeoBundle 'vim-jp/cpp-vim'
+NeoBundle 'cjuniet/clang-format.vim'
 call neobundle#end()
 
 NeoBundleCheck
@@ -115,12 +120,6 @@ if !exists('g:tcomment_types')
   let g:tcomment_types = {}
 endif
 
-" フォーマッタ
-" nmap <C-f> :Autopep8<CR>
-" vmap <C-f> :Autopep8<CR>
-nmap <C-f> :call Clang_format()<CR>
-vmap <C-f> :call Clang_format()<CR>
-
 colorscheme jellybeans
 
 """"""""""""""""""""""""""""""
@@ -136,10 +135,10 @@ endif
 
 map <C-e> :NERDTreeToggle<CR>
 
-if executable('clang-format-6.0')
-  augroup cpp_clang_format
-    autocmd!
-    autocmd BufWrite,FileWritePre,FileAppendPre \(*.cpp\|*.h\) call s:clang_format()
-  augroup END
-endif
+" clang-format.vim
+" need clang-format-12 and executable link named `clang-format`
+let g:clang_format_style="{BasedOnStyle: Google, IndentWidth: 4, Standard: C++11, AllowShortEnumsOnASingleLine: false, AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Never, AllowShortCaseLabelsOnASingleLine: false, AllowShortFunctionsOnASingleLine: None, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignConsecutiveMacros: true, AlignEscapedNewlines: true, AlignTrailingComments: true, AllowAllArgumentsOnNextLine: true, AllowAllConstructorInitializersOnNextLine: true, AllowAllParametersOfDeclarationOnNextLine: true}"
+nmap <C-f> <C-k>
+vmap <C-f> <C-k>
+
 
