@@ -21,7 +21,11 @@ ln -sf $self_dir/_byobu .byobu
 ln -sf $self_dir/i3-config .config/i3/config
 ln -sf $self_dir/i3status.conf .config/i3status/config
 
-sudo apt -y install neovim xsel tree colordiff compton feh clang-format-6.0 vlc ffmpeg byobu x11vnc i3* ttf-dejavu* fonts-ipafont net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc
+sudo apt -y install neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc i3* ttf-dejavu* fonts-ipafont net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-12
+
+# for clang-format.vim
+cd /usr/bin
+sudo ln -sf clang-format-12 clang-format
 
 echo ""
 echo ""
