@@ -14,6 +14,7 @@ mkdir -p .nvim/bundle
 git clone https://github.com/Shougo/neobundle.vim.git .nvim/bundle/neobundle.vim
 
 ln -sf $self_dir/_bashrc .bashrc
+ln -sf $self_dir/_tmux.conf .tmux.conf
 ln -sf $self_dir/compton.conf .config/compton/compton.conf
 ln -sf $self_dir/_vimrc .config/nvim/init.vim
 ln -sf $self_dir/_bin bin
