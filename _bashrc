@@ -140,5 +140,23 @@ alias tl7="tree -L 7"
 alias tl8="tree -L 8"
 alias tl9="tree -L 9"
 
+alias cd1="cd ../"
+alias cd2="cd ../../"
+alias cd3="cd ../../../"
+alias cd4="cd ../../../../"
+alias cd5="cd ../../../../../"
+alias cd6="cd ../../../../../../"
+alias cd7="cd ../../../../../../../"
+alias cd8="cd ../../../../../../../../"
+alias cd9="cd ../../../../../../../../../"
+
 xset s off -dpms
+
+# individual custom
+xmodmap ~/_dotfiles/_xmodmap_vnc
+
+
+
+# ros
+# source /opt/ros/noetic/setup.bash
 
