@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# this script can be called in duplicate
+
 sudo apt update
 sudo apt -y install git
 
@@ -11,7 +13,10 @@ mkdir -p .config/compton
 mkdir -p .config/i3
 mkdir -p .config/i3status
 mkdir -p .nvim/bundle
-git clone https://github.com/Shougo/neobundle.vim.git .nvim/bundle/neobundle.vim
+
+if [[ ! e .nvim/bundle/neobundle.vim]]; then
+    git clone https://github.com/Shougo/neobundle.vim.git .nvim/bundle/neobundle.vim
+fi
 
 ln -sf $self_dir/_bashrc .bashrc
 ln -sf $self_dir/_tmux.conf .tmux.conf
@@ -27,6 +32,12 @@ sudo apt -y install neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11v
 # for clang-format.vim
 cd /usr/bin
 sudo ln -sf clang-format-12 clang-format
+
+# for nvim by root
+sudo mkdir -p /root/.config/nvim
+sudo mkdir -p /root/.nvim/
+sudo ln -sf $self_dir/_vimrc /root/.config/nvim/init.vim
+sudo ln -sf $self_dir/.nvim/bundle /root/.nvim/bundle
 
 echo ""
 echo ""
