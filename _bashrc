@@ -127,7 +127,7 @@ alias vim="nvim"
 alias cliphist="history 2|head -1|cut -c 8-|xsel -bi"
 alias ch="history 2|head -1|cut -c 8-|xsel -bi"
 alias px="pwd|xsel -bi"
-alias cx="cd `xsel -bo`"
+alias cx="cd `_clip_out.sh`"
 alias diff="colordiff -u"
 
 alias tl1="tree -L 1"
@@ -150,7 +150,13 @@ alias cd7="cd ../../../../../../../"
 alias cd8="cd ../../../../../../../../"
 alias cd9="cd ../../../../../../../../../"
 
+# byobu new
+alias bn="byobu new -s `date '+%Y-%m-%d-%H-%M-%S'`-$RANDOM"
+
 xset s off -dpms
+
+# avoid exit byobu by typing C-d in copy-mode-vi
+export IGNOREEOF=5
 
 # individual custom
 xmodmap ~/_dotfiles/_xmodmap_vnc
