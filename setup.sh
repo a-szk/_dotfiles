@@ -15,13 +15,13 @@ mkdir -p bin
 
 
 ln -sf $self_dir/_bashrc .bashrc
-ln -sf $self_dir/compton.conf .config/compton/compton.conf
+ln -sf $self_dir/_compton.conf .config/compton/compton.conf
 ln -sf $self_dir/_vimrc .config/nvim/init.vim
 rm -rf .byobu
 ln -sf $self_dir/_byobu .byobu
 ln -sf $self_dir/_tmux.conf .tmux.conf
-ln -sf $self_dir/i3-config .config/i3/config
-ln -sf $self_dir/i3status.conf .config/i3status/config
+ln -sf $self_dir/_i3-config .config/i3/config
+ln -sf $self_dir/_i3status.conf .config/i3status/config
 ls $self_dir/_bin | xargs -n1 -IXXX ln -sf $self_dir/_bin/XXX bin/XXX
 
 sudo apt update
