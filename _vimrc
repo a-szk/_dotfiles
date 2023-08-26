@@ -3,6 +3,9 @@ if exists('g:vscode')
 else
   " ordinary Neovim
 
+  "set line feed code
+  set fileformats=unix
+
   "set number
   set relativenumber
   set number
