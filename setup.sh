@@ -10,7 +10,7 @@ self_dir=$(cd $(dirname $0); pwd)
 cd $HOME
 
 sudo apt update
-sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc i3* ttf-dejavu* fonts-ipafont pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-12
+sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc i3* ttf-dejavu* fonts-ipafont pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-6.0
 
 mkdir -p $HOME/.config/nvim
 mkdir -p $HOME/.config/compton
@@ -56,7 +56,7 @@ MoveShellsWithBackUp()
         fi
         ln -sf $self_dir/$1/$file $3/$2/$file
     done
-    if [ -z "$output" ];then
+    if [ -n "$output" ];then
         echo "Original $2 files are moved to ~/_dotfiles/.backup/bak_$now/$1/"
     fi
 }
@@ -73,7 +73,7 @@ MoveShellsWithBackUp    _bin             bin             $HOME
 
 # for clang-format.vim
 cd /usr/bin
-sudo ln -sf clang-format-12 clang-format
+sudo ln -sf clang-format-6.0 clang-format
 
 # for vim, nvim by root
 sudo mkdir -p /root/.config/nvim
