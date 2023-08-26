@@ -1,8 +1,8 @@
 #!/bin/sh
 # this script can be called in duplicate
 
-if [ "`whoami`" == "root" ]; then
-  echo "Please run as a user, without sudo."
+if [ "`whoami`" = "root" ]; then
+  echo "Please run as a user, without sudo." 1>&2
   exit 1
 fi
 
@@ -12,32 +12,64 @@ cd $HOME
 sudo apt update
 sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc i3* ttf-dejavu* fonts-ipafont pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-12
 
-mkdir -p $HOME.config/nvim
-mkdir -p $HOME.config/compton
-mkdir -p $HOME.config/i3
-mkdir -p $HOME.config/i3status
-mkdir -p $HOME.nvim/bundle
-mkdir -p $HOME.vim/bundle
+mkdir -p $HOME/.config/nvim
+mkdir -p $HOME/.config/compton
+mkdir -p $HOME/.config/i3
+mkdir -p $HOME/.config/i3status
+mkdir -p $HOME/.nvim/bundle
+mkdir -p $HOME/.vim/bundle
 mkdir -p $HOME/bin
 
 # vim, nvim
-if [ ! -e $HOME.nvim/bundle/neobundle.vim ]; then
-    git clone https://github.com/Shougo/neobundle.vim.git $HOME.nvim/bundle/neobundle.vim
+if [ ! -e $HOME/.nvim/bundle/neobundle.vim ]; then
+    git clone https://github.com/Shougo/neobundle.vim.git $HOME/.nvim/bundle/neobundle.vim
 fi
-if [ ! -e $HOME.vim/bundle/neobundle.vim ]; then
-    git clone https://github.com/Shougo/neobundle.vim.git $HOME.vim/bundle/neobundle.vim
+if [ ! -e $HOME/.vim/bundle/neobundle.vim ]; then
+    git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
 fi
 
-ln -sf $self_dir/_bashrc $HOME.bashrc
-ln -sf $self_dir/_compton.conf $HOME.config/compton/compton.conf
-ln -sf $self_dir/_vimrc $HOME.config/nvim/init.vim
-ln -sf $self_dir/_vimrc .$HOMEvimrc
-rm -rf $HOME.byobu
-ln -sf $self_dir/_byobu $HOME.byobu
-ln -sf $self_dir/_tmux.conf $HOME.tmux.conf
-ln -sf $self_dir/_i3-config $HOME.config/i3/config
-ln -sf $self_dir/_i3status.conf $HOME.config/i3status/config
-ls $self_dir/_bin | xargs -n1 -IXXX ln -sf $self_dir/_bin/XXX $HOME/bin/XXX
+echo "";echo "";echo ""
+
+now=`date '+%Y%m%d_%H_%M'`
+bak_dir="$self_dir/.backup/bak_$now"
+
+MoveWithBackUp()
+{
+    if [ -e $3/$2 ];then
+        mkdir -p $bak_dir
+        cp -rfL $3/$2 $bak_dir/$1
+        echo "Original config was moved to ~/_dotfiles/.backup/bak_$now/$1"
+        rm -rf $3/$2
+    fi
+    ln -sf $self_dir/$1 $3/$2
+}
+
+MoveShellsWithBackUp()
+{
+    output=""
+    for file in $(ls -1 $self_dir/$1); do
+        if [ -e $3/$2/$file ];then
+            mkdir -p $bak_dir/$1
+            cp -rfL $3/$2/$file $bak_dir/$1/$file
+            rm -rf $3/$2/$file
+            output="$output, $file"
+        fi
+        ln -sf $self_dir/$1/$file $3/$2/$file
+    done
+    if [ -z "$output" ];then
+        echo "Original $2 files are moved to ~/_dotfiles/.backup/bak_$now/$1/"
+    fi
+}
+
+MoveWithBackUp          _bashrc          .bashrc         $HOME
+MoveWithBackUp          _compton.conf    compton.conf    $HOME/.config/compton
+MoveWithBackUp          _vimrc           init.vim        $HOME/.config/nvim
+MoveWithBackUp          _vimrc           .vimrc          $HOME
+MoveWithBackUp          _byobu           .byobu          $HOME
+MoveWithBackUp          _tmux.conf       .tmux.conf      $HOME
+MoveWithBackUp          _i3-config       config          $HOME/.config/i3
+MoveWithBackUp          _i3status.conf   config          $HOME/.config/i3status
+MoveShellsWithBackUp    _bin             bin             $HOME
 
 # for clang-format.vim
 cd /usr/bin
