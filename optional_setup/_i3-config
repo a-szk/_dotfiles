@@ -186,7 +186,7 @@ bar
 exec fcitx
 exec indicator-cpufreq
 # exec --no-startup-id compton --config ~/.config/compton/compton.conf
-exec --no-startup-id feh --bg-scale ~/_dotfiles/wallpaper/cave_story_running_hell.jpg
+exec --no-startup-id feh --bg-scale ~/_dotfiles/optional_setup/wallpaper/cave_story_running_hell.jpg
 # exec --no-startup-id xset dpms 0 0 0; xset s off
 
 # exec_always: restart時にも処理を行う
