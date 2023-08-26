@@ -140,7 +140,22 @@ map <C-e> :NERDTreeToggle<CR>
 
 " clang-format.vim
 " need clang-format-12 and executable link named `clang-format`
-let g:clang_format_style="{BasedOnStyle: Google, IndentWidth: 4, Standard: C++11, AllowShortEnumsOnASingleLine: false, AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Never, AllowShortCaseLabelsOnASingleLine: false, AllowShortFunctionsOnASingleLine: None, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignConsecutiveMacros: true, AlignEscapedNewlines: true, AlignTrailingComments: true, AllowAllArgumentsOnNextLine: true, AllowAllConstructorInitializersOnNextLine: true, AllowAllParametersOfDeclarationOnNextLine: true}"
+let g:clang_format#style_options = {
+            \ "BasedOnStyle" : "Google",
+            \ "IndentWidth": 4,
+            \ "Standard" : "C++11",
+            \ "AllowShortEnumsOnASingleLine" : "false",
+            \ "AllowShortBlocksOnASingleLine" : "Never",
+            \ "AllowShortCaseLabelsOnASingleLine" : "false",
+            \ "AllowShortFunctionsOnASingleLine" : "None",
+            \ "AlignConsecutiveAssignments" : "true",
+            \ "AlignConsecutiveDeclarations" : "true",
+            \ "AlignConsecutiveMacros" : "true",
+            \ "AlignEscapedNewlines" : "true",
+            \ "AlignTrailingComments" : "true",
+            \ "AllowAllArgumentsOnNextLine" : "true",
+            \ "AllowAllConstructorInitializersOnNextLine" : "true",
+            \ "AllowAllParametersOfDeclarationOnNextLine" : "true"}
 nmap <C-f> <C-k>
 vmap <C-f> <C-k>
 
