@@ -42,9 +42,6 @@ MoveOptionalShellsWithBackUp()
     fi
 }
 
-MoveOptionalWithBackUp          _compton.conf    compton.conf    $HOME/.config/compton
-MoveOptionalWithBackUp          _i3-config       config          $HOME/.config/i3
-MoveOptionalWithBackUp          _i3status.conf   config          $HOME/.config/i3status
-MoveOptionalShellsWithBackUp    _bin             bin             $HOME
+# MoveOptionalShellsWithBackUp    _bin             bin             $HOME
 
 exit 0
