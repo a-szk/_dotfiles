@@ -3,6 +3,9 @@ if exists('g:vscode')
 else
   " ordinary Neovim
 
+  "set line feed code
+  set fileformats=unix
+
   "set number
   set relativenumber
   set number
@@ -136,8 +139,23 @@ endif
 map <C-e> :NERDTreeToggle<CR>
 
 " clang-format.vim
-" need clang-format-12 and executable link named `clang-format`
-let g:clang_format_style="{BasedOnStyle: Google, IndentWidth: 4, Standard: C++11, AllowShortEnumsOnASingleLine: false, AlignTrailingComments: true, AllowShortBlocksOnASingleLine: Never, AllowShortCaseLabelsOnASingleLine: false, AllowShortFunctionsOnASingleLine: None, AlignConsecutiveAssignments: true, AlignConsecutiveDeclarations: true, AlignConsecutiveMacros: true, AlignEscapedNewlines: true, AlignTrailingComments: true, AllowAllArgumentsOnNextLine: true, AllowAllConstructorInitializersOnNextLine: true, AllowAllParametersOfDeclarationOnNextLine: true}"
+" need clang-format-6.0 and executable link named `clang-format`
+let g:clang_format#style_options = {
+            \ "Language" : "Cpp",
+            \ "BasedOnStyle" : "Google",
+            \ "AlignConsecutiveAssignments" : "true",
+            \ "AllowShortFunctionsOnASingleLine" : "Empty",
+            \ "AllowShortIfStatementsOnASingleLine" : "false",
+            \ "AllowShortLoopsOnASingleLine" : "false",
+            \ "BreakBeforeBinaryOperators" : "NonAssignment",
+            \ "BreakConstructorInitializers" : "AfterColon",
+            \ "ColumnLimit" : "80",
+            \ "ConstructorInitializerAllOnOneLineOrOnePerLine" : "true",
+            \ "DerivePointerAlignment" : "false",
+            \ "ReflowComments" : "false",
+            \ "SortIncludes" : "true",
+            \ "SortUsingDeclarations" : "true",
+            \ "SpaceAfterTemplateKeyword" : "false"}
 nmap <C-f> <C-k>
 vmap <C-f> <C-k>
 

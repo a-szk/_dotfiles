@@ -151,7 +151,7 @@ alias cd8="cd ../../../../../../../../"
 alias cd9="cd ../../../../../../../../../"
 
 # byobu new
-alias bn="byobu new -s `date '+%Y-%m-%d-%H-%M-%S'`-$RANDOM"
+alias bn="byobu new -s `date '+%Y-%m-%d-%H-%M-%S'`"
 
 xset s off -dpms
 
