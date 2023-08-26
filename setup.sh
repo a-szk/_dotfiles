@@ -16,6 +16,10 @@ mkdir -p .config/i3status
 mkdir -p .nvim/bundle
 mkdir -p bin
 
+# nvim
+if [ ! -e .nvim/bundle/neobundle.vim ]; then
+    git clone https://github.com/Shougo/neobundle.vim.git .nvim/bundle/neobundle.vim
+fi
 
 ln -sf $self_dir/_bashrc .bashrc
 ln -sf $self_dir/_compton.conf .config/compton/compton.conf
@@ -26,11 +30,6 @@ ln -sf $self_dir/_tmux.conf .tmux.conf
 ln -sf $self_dir/_i3-config .config/i3/config
 ln -sf $self_dir/_i3status.conf .config/i3status/config
 ls $self_dir/_bin | xargs -n1 -IXXX ln -sf $self_dir/_bin/XXX bin/XXX
-
-# nvim
-if [ ! -e .nvim/bundle/neobundle.vim ]; then
-    git clone https://github.com/Shougo/neobundle.vim.git .nvim/bundle/neobundle.vim
-fi
 
 # for clang-format.vim
 cd /usr/bin
