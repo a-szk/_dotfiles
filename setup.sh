@@ -1,6 +1,11 @@
 #!/bin/sh
 # this script can be called in duplicate
 
+if [ "`whoami`" == "root" ]; then
+  echo "Please run as a user, without sudo."
+  exit 1
+fi
+
 self_dir=$(cd $(dirname $0); pwd)
 cd $HOME
 
@@ -50,3 +55,5 @@ sudo ln -sf $HOME/.vim/bundle /root/.vim/bundle
 echo ""
 echo ""
 echo "Modify i3status.conf for network!"
+
+exit 0
