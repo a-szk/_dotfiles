@@ -33,7 +33,7 @@ fi
 
 echo "";echo "";echo ""
 
-now=`date '+%Y%m%d_%H_%M'`
+now=`date '+%Y%m%d_%H-%M'`
 bak_dir="$self_dir/.backup/bak_$now"
 
 MoveWithBackUp()
