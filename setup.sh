@@ -6,6 +6,7 @@ if [ "`whoami`" = "root" ]; then
   exit 1
 fi
 
+user=`whoami`
 self_dir=$(cd $(dirname $0); pwd)
 optional_dir=$self_dir/optional_setup
 cd $HOME
@@ -14,10 +15,11 @@ sudo apt update
 sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-6.0
 $optional_dir/optional_setup_apt_install.sh
 
-mkdir -p $HOME/.config/nvim
-mkdir -p $HOME/.nvim/bundle
-mkdir -p $HOME/.vim/bundle
-mkdir -p $HOME/bin
+sudo mkdir -p $HOME/.config/nvim; sudo chown $user:$user $HOME/.config; sudo chown $user:$user $HOME/.config/nvim
+sudo mkdir -p $HOME/.nvim/bundle; sudo chown $user:$user $HOME/.nvim; sudo chown $user:$user $HOME/.nvim/bundle
+sudo mkdir -p $HOME/.vim/bundle; sudo chown $user:$user $HOME/.vim; sudo chown $user:$user $HOME/.vim/bundle
+sudo mkdir -p $HOME/bin; sudo chown $user:$user $HOME/bin
+
 
 $optional_dir/optional_setup_mkdir.sh
 
@@ -40,9 +42,10 @@ MoveWithBackUp()
         mkdir -p $bak_dir
         cp -rfL $3/$2 $bak_dir/$1
         echo "Original config was moved to ~/_dotfiles/.backup/bak_$now/$1"
-        rm -rf $3/$2
+        sudo rm -rf $3/$2
     fi
     ln -sf $self_dir/$1 $3/$2
+    sudo chown $user:$user $3/$2
 }
 
 MoveShellsWithBackUp()
@@ -52,10 +55,11 @@ MoveShellsWithBackUp()
         if [ -e $3/$2/$file ];then
             mkdir -p $bak_dir/$1
             cp -rfL $3/$2/$file $bak_dir/$1/$file
-            rm -rf $3/$2/$file
+            sudo rm -rf $3/$2/$file
             output="$output, $file"
         fi
         ln -sf $self_dir/$1/$file $3/$2/$file
+        sudo chown $user:$user $3/$2/$file
     done
     if [ -n "$output" ];then
         echo "Original $2 files are moved to ~/_dotfiles/.backup/bak_$now/$1/"

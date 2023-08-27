@@ -7,6 +7,13 @@ if [ $# -ne 3 ]; then
   exit 1
 fi
 
+if [ "`whoami`" = "root" ]; then
+  echo "$SH_COMMAND: Please run as a user, without sudo." 1>&2
+  exit 1
+fi
+
+user=`whoami`
+
 self_dir=$1
 now=$2
 bak_dir=$3
@@ -20,9 +27,10 @@ MoveOptionalWithBackUp()
         mkdir -p $optional_bak_dir
         cp -rfL $3/$2 $optional_bak_dir/$1
         echo "Original config was moved to ~/_dotfiles/.backup/bak_$now/optional/$1"
-        rm -rf $3/$2
+        sudo rm -rf $3/$2
     fi
     ln -sf $optional_self_dir/$1 $3/$2
+    sudo chown $user:$user $3/$2
 }
 
 MoveOptionalShellsWithBackUp()
@@ -32,10 +40,11 @@ MoveOptionalShellsWithBackUp()
         if [ -e $3/$2/$file ];then
             mkdir -p $optional_bak_dir/$1
             cp -rfL $3/$2/$file $optional_bak_dir/$1/$file
-            rm -rf $3/$2/$file
+            sudo rm -rf $3/$2/$file
             output="$output, $file"
         fi
         ln -sf $optional_self_dir/$1/$file $3/$2/$file
+        sudo chown $user:$user $3/$2/$file
     done
     if [ -n "$output" ];then
         echo "Original $2 files are moved to ~/_dotfiles/.backup/bak_$now/optional/$1/"
