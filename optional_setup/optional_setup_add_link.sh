@@ -31,6 +31,7 @@ MoveOptionalWithBackUp()
     fi
     ln -sf $optional_self_dir/$1 $3/$2
     sudo chown $user:$user $3/$2
+    return 0
 }
 
 MoveOptionalShellsWithBackUp()
@@ -49,6 +50,7 @@ MoveOptionalShellsWithBackUp()
     if [ -n "$output" ];then
         echo "Original $2 files are moved to ~/_dotfiles/.backup/bak_$now/optional/$1/"
     fi
+    return 0
 }
 
 MoveOptionalWithBackUp          _compton.conf    compton.conf    $HOME/.config/compton

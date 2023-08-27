@@ -11,6 +11,25 @@ self_dir=$(cd $(dirname $0); pwd)
 optional_dir=$self_dir/optional_setup
 cd $HOME
 
+DrawLine()
+{
+    col=`tput cols`
+    width=`seq 3 $col`
+    for i in $width; do
+        echo -n "\033[1;33m-\033[m"
+    done
+    echo ""
+    return 0
+}
+
+sudo ls 1>/dev/null
+
+echo ""
+DrawLine
+echo -n "\033[1;33mAPT Install\033[m"
+echo ""
+echo ""
+
 sudo apt update
 sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-6.0
 $optional_dir/optional_setup_apt_install.sh
@@ -31,7 +50,11 @@ if [ ! -e $HOME/.vim/bundle/neobundle.vim ]; then
     git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
 fi
 
-echo "";echo "";echo ""
+echo ""
+DrawLine
+echo -n "\033[1;33mLink FileSystem\033[m"
+echo ""
+echo ""
 
 now=`date '+%Y%m%d_%H-%M'`
 bak_dir="$self_dir/.backup/bak_$now"
@@ -46,6 +69,7 @@ MoveWithBackUp()
     fi
     ln -sf $self_dir/$1 $3/$2
     sudo chown $user:$user $3/$2
+    return 0
 }
 
 MoveShellsWithBackUp()
@@ -64,6 +88,7 @@ MoveShellsWithBackUp()
     if [ -n "$output" ];then
         echo "Original $2 files are moved to ~/_dotfiles/.backup/bak_$now/$1/"
     fi
+    return 0
 }
 
 MoveWithBackUp          _bashrc          .bashrc         $HOME
@@ -89,6 +114,15 @@ sudo ln -sf $self_dir/_vimrc /root/.vimrc
 sudo ln -sf $HOME/.nvim/bundle /root/.nvim/bundle
 sudo ln -sf $HOME/.vim/bundle /root/.vim/bundle
 
+echo ""
+DrawLine
+echo -n "\033[1;33mSetup Finished\033[m"
+echo ""
+echo ""
+
 $optional_dir/optional_setup_exit.sh
+
+echo ""
+DrawLine
 
 exit 0
