@@ -39,7 +39,6 @@ sudo mkdir -p $HOME/.nvim/bundle; sudo chown $user:$user $HOME/.nvim; sudo chown
 sudo mkdir -p $HOME/.vim/bundle; sudo chown $user:$user $HOME/.vim; sudo chown $user:$user $HOME/.vim/bundle
 sudo mkdir -p $HOME/bin; sudo chown $user:$user $HOME/bin
 
-
 $optional_dir/optional_setup_mkdir.sh
 
 # vim, nvim
@@ -48,6 +47,7 @@ if [ ! -e $HOME/.nvim/bundle/neobundle.vim ]; then
 fi
 if [ ! -e $HOME/.vim/bundle/neobundle.vim ]; then
     git clone https://github.com/Shougo/neobundle.vim.git $HOME/.vim/bundle/neobundle.vim
+
 fi
 
 echo ""
@@ -126,3 +126,4 @@ echo ""
 DrawLine
 
 exit 0
+
