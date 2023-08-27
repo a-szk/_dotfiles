@@ -57,14 +57,14 @@ echo ""
 echo ""
 
 now=`date '+%Y%m%d_%H-%M'`
-bak_dir="$self_dir/.backup/bak_$now"
+bak_dir="$self_dir/backup/bak_$now"
 
 MoveWithBackUp()
 {
     if [ -e $3/$2 ];then
         mkdir -p $bak_dir
         cp -rfL $3/$2 $bak_dir/$1
-        echo "Original config was moved to ~/_dotfiles/.backup/bak_$now/$1"
+        echo "Original config was moved to ~/_dotfiles/backup/bak_$now/$1"
         sudo rm -rf $3/$2
     fi
     ln -sf $self_dir/$1 $3/$2
@@ -86,7 +86,7 @@ MoveShellsWithBackUp()
         sudo chown $user:$user $3/$2/$file
     done
     if [ -n "$output" ];then
-        echo "Original $2 files are moved to ~/_dotfiles/.backup/bak_$now/$1/"
+        echo "Original $2 files are moved to ~/_dotfiles/backup/bak_$now/$1/"
     fi
     return 0
 }

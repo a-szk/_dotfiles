@@ -12,5 +12,5 @@ Any additional customizations you prefer, please write your own.
 
 ## note
 The script `./setup.bash` can be called any number of times, 
-and backup files are saved automatically to `_dotfiles/.backup/`
+and backup files are saved automatically to `_dotfiles/backup/`
 
