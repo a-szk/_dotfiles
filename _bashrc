@@ -127,7 +127,7 @@ alias vim="nvim"
 alias cliphist="history 2|head -1|cut -c 8-|xsel -bi"
 alias ch="history 2|head -1|cut -c 8-|xsel -bi"
 alias px="pwd|xsel -bi"
-alias cx="cd `_clip_out.sh`"
+alias cx="source _clip_out.bash"
 alias diff="colordiff -u"
 
 alias tl1="tree -L 1"
@@ -160,7 +160,6 @@ export IGNOREEOF=5
 
 # individual custom
 xmodmap ~/_dotfiles/_xmodmap_vnc
-
 
 
 # ros
