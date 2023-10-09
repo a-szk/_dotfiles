@@ -85,7 +85,7 @@ bindsym $mod+Shift+f floating toggle
 bindsym $mod+space focus mode_toggle
 
 # focus the parent container
-bindsym $mod+a focus parent
+# bindsym $mod+a focus parent
 
 # switch to workspace
 bindsym $mod+1 workspace 1
@@ -115,80 +115,75 @@ bindsym $mod+Shift+0 move container to workspace 10
 bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
-
 bindsym --release $mod+p exec gnome-screenshot
 bindsym --release $mod+Shift+p exec gnome-screenshot --area
 
-
 set $session "(E)xit (L)ock (P)oweroff (R)eboot (S)uspend"
 mode  $session {
-         bindsym e exec $psst i3-msg exit; mode "default"
-         bindsym l exec $psst i3lock -c 282828; mode "default"
-         bindsym p exec $psst poweroff; mode "default"
-         bindsym r exec $psst reboot; mode "default"
-         bindsym s exec $psst systemctl suspend; mode "default"
+  bindsym e exec $psst i3-msg exit; mode "default"
+  bindsym l exec $psst i3lock -c 282828; mode "default"
+  bindsym p exec $psst poweroff; mode "default"
+  bindsym r exec $psst reboot; mode "default"
+  bindsym s exec $psst systemctl suspend; mode "default"
 
-         bindsym q mode "default"
-         bindsym Escape mode "default"
+  bindsym q mode "default"
+  bindsym Escape mode "default"
 }
 
 bindsym $mod+Shift+e mode $session
 
-
-
 # resize window (you can also use the mouse for that)
 mode "resize" {
-        # These bindings trigger as soon as you enter the resize mode
+   # These bindings trigger as soon as you enter the resize mode
 
-        # Pressing left will shrink the window’s width.
-        # Pressing right will grow the window’s width.
-        # Pressing up will shrink the window’s height.
-        # Pressing down will grow the window’s height.
-        bindsym h resize shrink width 10 px or 10 ppt
-        bindsym j resize grow height 10 px or 10 ppt
-        bindsym k resize shrink height 10 px or 10 ppt
-        bindsym l resize grow width 10 px or 10 ppt
+   # Pressing left will shrink the window’s width.
+   # Pressing right will grow the window’s width.
+   # Pressing up will shrink the window’s height.
+   # Pressing down will grow the window’s height.
+   bindsym h resize shrink width 10 px or 10 ppt
+   bindsym j resize grow height 10 px or 10 ppt
+   bindsym k resize shrink height 10 px or 10 ppt
+   bindsym l resize grow width 10 px or 10 ppt
 
-        # same bindings, but for the arrow keys
-        bindsym Left resize shrink width 10 px or 10 ppt
-        bindsym Down resize grow height 10 px or 10 ppt
-        bindsym Up resize shrink height 10 px or 10 ppt
-        bindsym Right resize grow width 10 px or 10 ppt
+   # same bindings, but for the arrow keys
+   bindsym Left resize shrink width 1 px or 1 ppt
+   bindsym Down resize grow height 1 px or 1 ppt
+   bindsym Up resize shrink height 1 px or 1 ppt
+   bindsym Right resize grow width 1 px or 1 ppt
 
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+   # back to normal: Enter or Escape
+   bindsym Return mode "default"
+   bindsym Escape mode "default"
 }
 
 bindsym $mod+r mode "resize"
 
 set $shortcut "press shortcut key"
 mode $shortcut{
-		bindsym c exec google-chrome --password-store=basic; mode "default"
-		bindsym f exec firefox; mode "default"
-		bindsym z exec nautilus -w; mode "default"
-		bindsym x exec gnome-terminal -e 'bash -c "vifm"'; mode "default"
-		bindsym e exec evince; mode "default"
-		# back to normal
-		bindsym q mode "default"
-		bindsym Escape mode "default"
+  bindsym c exec google-chrome --password-store=basic; mode "default"
+  bindsym f exec firefox; mode "default"
+  bindsym z exec nautilus -w; mode "default"
+  bindsym x exec gnome-terminal -e 'bash -c "vifm"'; mode "default"
+  bindsym e exec evince; mode "default"
+  # back to normal
+  bindsym q mode "default"
+  bindsym Escape mode "default"
 }
 bindsym $mod+u mode $shortcut
 
-bar 
+bar
 {
   status_command i3status
-	font pango:DejaVu Sans 16px
+  font pango:DejaVu Sans 16px
 }
 
-# exec: 起動時に一回だけ行う
-# exec i3-sensible-terminal
-exec fcitx
-exec indicator-cpufreq
+# exec: ログイン時に一回だけ行う
+# exec --no-startup-id ログイン直後に起動するが、起動完了までwaitしない
+# exec_always: restart時にも処理を行う
+exec  --no-startup-id i3-sensible-terminal
+exec --no-startup-id fcitx
+exec --no-startup-id indicator-cpufreq
 # exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-scale ~/_dotfiles/optional_setup/wallpaper/cave_story_running_hell.jpg
-# exec --no-startup-id xset dpms 0 0 0; xset s off
-
-# exec_always: restart時にも処理を行う
-
+exec --no-startup-id xset dpms 0 0 0; xset s off
 
