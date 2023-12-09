@@ -38,6 +38,7 @@ sudo mkdir -p $HOME/.config/nvim; sudo chown $user:$user $HOME/.config; sudo cho
 sudo mkdir -p $HOME/.nvim/bundle; sudo chown $user:$user $HOME/.nvim; sudo chown $user:$user $HOME/.nvim/bundle
 sudo mkdir -p $HOME/.vim/bundle; sudo chown $user:$user $HOME/.vim; sudo chown $user:$user $HOME/.vim/bundle
 sudo mkdir -p $HOME/bin; sudo chown $user:$user $HOME/bin
+sudo echo 'export TERMINAL="x-terminal-emulator"' > /etc/profile.d/i3.sh
 
 $optional_dir/optional_setup_mkdir.sh
 

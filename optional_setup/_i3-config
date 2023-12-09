@@ -163,7 +163,6 @@ mode $shortcut{
   bindsym c exec google-chrome --password-store=basic; mode "default"
   bindsym f exec firefox; mode "default"
   bindsym z exec nautilus -w; mode "default"
-  bindsym x exec gnome-terminal -e 'bash -c "vifm"'; mode "default"
   bindsym e exec evince; mode "default"
   # back to normal
   bindsym q mode "default"
