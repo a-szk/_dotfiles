@@ -27,7 +27,7 @@ font pango:DejaVu Sans,IPAGothic 16px
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec x-terminal-emulator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -179,7 +179,7 @@ bar
 # exec: ログイン時に一回だけ行う
 # exec --no-startup-id ログイン直後に起動するが、起動完了までwaitしない
 # exec_always: restart時にも処理を行う
-exec  --no-startup-id i3-sensible-terminal
+exec --no-startup-id x-terminal-emulator
 exec --no-startup-id fcitx
 exec --no-startup-id indicator-cpufreq
 # exec --no-startup-id compton --config ~/.config/compton/compton.conf
