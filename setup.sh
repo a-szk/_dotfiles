@@ -31,7 +31,7 @@ echo ""
 echo ""
 
 sudo apt update
-sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-6.0
+sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-12 nload
 $optional_dir/optional_setup_apt_install.sh
 
 sudo mkdir -p $HOME/.config/nvim; sudo chown $user:$user $HOME/.config; sudo chown $user:$user $HOME/.config/nvim
@@ -103,7 +103,7 @@ $optional_dir/optional_setup_add_link.sh $self_dir $now $bak_dir
 
 # for clang-format.vim
 cd /usr/bin
-sudo ln -sf clang-format-6.0 clang-format
+sudo ln -sf clang-format-12 clang-format
 
 # for vim, nvim by root
 sudo mkdir -p /root/.config/nvim
