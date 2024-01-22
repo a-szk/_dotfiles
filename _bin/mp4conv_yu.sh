@@ -7,4 +7,4 @@ if [ $# -ne 0 ]; then
 fi
 
 mkdir conv
-ls | grep -E "*.mp4" | xargs -IXXX -n 1 -P8 ffmpeg -i XXX -pix_fmt yuv420p conv/XXX
+ls | grep -E "*.mp4" | xargs -IXXX -n 1 -P32 ffmpeg -i XXX -acodec copy -pix_fmt yuv420p conv/XXX
