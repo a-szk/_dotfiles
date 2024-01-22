@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 if [ $# -ne 0 ]; then
   xrandr --output eDP-1 --brightness $1
