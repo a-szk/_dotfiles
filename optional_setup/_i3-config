@@ -27,7 +27,7 @@ font pango:DejaVu Sans,IPAGothic 16px
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec x-terminal-emulator
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -135,11 +135,6 @@ bindsym $mod+Shift+e mode $session
 # resize window (you can also use the mouse for that)
 mode "resize" {
    # These bindings trigger as soon as you enter the resize mode
-
-   # Pressing left will shrink the window’s width.
-   # Pressing right will grow the window’s width.
-   # Pressing up will shrink the window’s height.
-   # Pressing down will grow the window’s height.
    bindsym h resize shrink width 10 px or 10 ppt
    bindsym j resize grow height 10 px or 10 ppt
    bindsym k resize shrink height 10 px or 10 ppt
@@ -179,7 +174,7 @@ bar
 # exec: ログイン時に一回だけ行う
 # exec --no-startup-id ログイン直後に起動するが、起動完了までwaitしない
 # exec_always: restart時にも処理を行う
-exec  --no-startup-id i3-sensible-terminal
+exec --no-startup-id x-terminal-emulator
 exec --no-startup-id fcitx
 exec --no-startup-id indicator-cpufreq
 # exec --no-startup-id compton --config ~/.config/compton/compton.conf
