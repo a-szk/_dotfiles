@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # this script can be called in duplicate
 #
 
@@ -58,4 +58,3 @@ MoveOptionalWithBackUp          _i3-config       config          $HOME/.config/i
 MoveOptionalWithBackUp          _i3status.conf   config          $HOME/.config/i3status
 MoveOptionalShellsWithBackUp    _bin             bin             $HOME
 
-exit 0

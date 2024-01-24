@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # this script can be called in duplicate
 
 if [ "`whoami`" = "root" ]; then
@@ -16,7 +16,7 @@ DrawLine()
     col=`tput cols`
     width=`seq 3 $col`
     for i in $width; do
-        echo -n "\033[1;33m-\033[m"
+        echo -en "\033[1;33m-\033[m"
     done
     echo ""
     return 0
@@ -26,21 +26,20 @@ sudo ls 1>/dev/null
 
 echo ""
 DrawLine
-echo -n "\033[1;33mAPT Install\033[m"
+echo -en "\033[1;33mAPT Install\033[m"
 echo ""
 echo ""
 
 sudo apt update
-sudo apt -y install git vim neovim xsel tree colordiff compton feh vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc clang-format-12 nload
-$optional_dir/optional_setup_apt_install.sh
+sudo apt -y install git vim neovim xsel tree colordiff vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc nload htop sysstat
+source $optional_dir/optional_setup_apt_install.bash
 
 sudo mkdir -p $HOME/.config/nvim; sudo chown $user:$user $HOME/.config; sudo chown $user:$user $HOME/.config/nvim
 sudo mkdir -p $HOME/.nvim/bundle; sudo chown $user:$user $HOME/.nvim; sudo chown $user:$user $HOME/.nvim/bundle
 sudo mkdir -p $HOME/.vim/bundle; sudo chown $user:$user $HOME/.vim; sudo chown $user:$user $HOME/.vim/bundle
 sudo mkdir -p $HOME/bin; sudo chown $user:$user $HOME/bin
-sudo echo 'export TERMINAL="x-terminal-emulator"' > /etc/profile.d/i3.sh
 
-$optional_dir/optional_setup_mkdir.sh
+source $optional_dir/optional_setup_mkdir.bash
 
 # vim, nvim
 if [ ! -e $HOME/.nvim/bundle/neobundle.vim ]; then
@@ -53,7 +52,7 @@ fi
 
 echo ""
 DrawLine
-echo -n "\033[1;33mLink FileSystem\033[m"
+echo -en "\033[1;33mLink FileSystem\033[m"
 echo ""
 echo ""
 
@@ -99,12 +98,11 @@ MoveWithBackUp          _byobu           .byobu          $HOME
 MoveWithBackUp          _tmux.conf       .tmux.conf      $HOME
 MoveShellsWithBackUp    _bin             bin             $HOME
 
-$optional_dir/optional_setup_add_link.sh $self_dir $now $bak_dir
+source $optional_dir/optional_setup_add_link.bash $self_dir $now $bak_dir
 
 
 # for clang-format.vim
-cd /usr/bin
-sudo ln -sf clang-format-12 clang-format
+source $optional_dir/optional_setup_after_install.bash
 
 # for vim, nvim by root
 sudo mkdir -p /root/.config/nvim
@@ -117,11 +115,11 @@ sudo ln -sf $HOME/.vim/bundle /root/.vim/bundle
 
 echo ""
 DrawLine
-echo -n "\033[1;33mSetup Finished\033[m"
+echo -en "\033[1;33mSetup Finished\033[m"
 echo ""
 echo ""
 
-$optional_dir/optional_setup_exit.sh
+source $optional_dir/optional_setup_exit.bash
 
 echo ""
 DrawLine
