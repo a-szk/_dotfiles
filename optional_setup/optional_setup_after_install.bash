@@ -3,5 +3,5 @@
 #
 
 cd /usr/bin
-sudo ln -sf clang-format-12 clang-format
+sudo ln -sf clang-format-6.0 clang-format
 
