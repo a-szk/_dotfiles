@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 # use arg -q to be no output
 #
 # the same as the following: 

@@ -1,3 +1,4 @@
 temp/
 *.swp
 backup/bak*
+_byobu/.ssh-agent
