@@ -1,2 +1,3 @@
 #!/bin/bash
-env XDG_CURRENT_DESKTOP=GNOME gnome-control-center
+gnome-control-center sound
+
