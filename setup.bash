@@ -31,7 +31,7 @@ echo ""
 echo ""
 
 sudo apt update
-sudo apt -y install git vim neovim xsel tree colordiff vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc nload htop sysstat
+sudo apt -y install git vim neovim xsel tree colordiff vlc ffmpeg byobu x11vnc pm-utils net-tools indicator-cpufreq python-gi python-gi-cairo python3-gi python3-gi-cairo gir1.2-gtk-3.0 exfat-fuse exfat-utils openssh-server fcitx-mozc nload htop sysstat rename
 source $optional_dir/optional_setup_apt_install.bash
 
 sudo mkdir -p $HOME/.config/nvim; sudo chown $user:$user $HOME/.config; sudo chown $user:$user $HOME/.config/nvim
