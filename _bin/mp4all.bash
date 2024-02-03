@@ -6,5 +6,5 @@ if [ $# -ne 0 ]; then
   exit 1
 fi
 
-echo "1\n2\n4\n8\n16" | xargs -IXXX -n 1 -P5 mp4conv_all_srt_x.sh XXX
+echo -e "1\n2\n4\n8\n16" | xargs -IXXX -n 1 -P5 mp4conv_all_srt_x.bash XXX
 
