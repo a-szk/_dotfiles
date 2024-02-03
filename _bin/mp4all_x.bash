@@ -6,5 +6,5 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-mkdir conv
+mkdir -p conv
 ls | grep -E "*.mp4" | xargs -IXXX -n 1 -P8 ffmpeg -i XXX -vf setpts=PTS/$1 -af atempo=$1 -pix_fmt yuv420p conv/XXX

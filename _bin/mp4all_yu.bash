@@ -6,5 +6,5 @@ if [ $# -ne 0 ]; then
   exit 1
 fi
 
-mkdir conv
+mkdir -p conv
 ls | grep -E "*.mp4" | xargs -IXXX -n 1 -P32 ffmpeg -i XXX -acodec copy -pix_fmt yuv420p conv/XXX
