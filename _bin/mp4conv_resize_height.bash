@@ -8,5 +8,5 @@ if [ $# -ne 2 ]; then
 fi
 
 mkdir -p conv
-ffmpeg -i $1 -vf scale=-1:$2 -strict -2 -an -pix_fmt yuv420p conv/$1 -y
+ffmpeg -i $1 -vf scale=-1:$2 -strict -2 -acodec copy -pix_fmt yuv420p conv/$1 -y
 

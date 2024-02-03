@@ -7,4 +7,4 @@ if [ $# -ne 3 ]; then
   exit 1
 fi
 
-ffmpeg -i $1 -i $2 -filter_complex "vstack" -strict -2 -an -pix_fmt yuv420p $3
+ffmpeg -i $1 -i $2 -filter_complex "vstack" -strict -2 -acodec copy -pix_fmt yuv420p $3
