@@ -6,4 +6,4 @@ if [ $# -ne 1 ]; then
   exit 1
 fi
 
-ls | grep -E "*.mp4" | xargs -IXXX -n 1 -P8 mp4conv_srt_x.sh $1 XXX
+ls | grep -E "*.mp4" | xargs -IXXX -n 1 -P8 mp4conv_srt_x.bash $1 XXX
