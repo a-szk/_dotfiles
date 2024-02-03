@@ -8,4 +8,4 @@ if [ $# -ne 5 ]; then
 fi
 
 mkdir -p conv
-ffmpeg -i $1 -vf crop=$2:$3:$4$5 -strict -2 -an -pix_fmt yuv420p conv/$1 -y
+ffmpeg -i $1 -vf crop=$2:$3:$4$5 -strict -2 -acodec copy -pix_fmt yuv420p conv/$1 -y
