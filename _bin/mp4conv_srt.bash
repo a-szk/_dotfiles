@@ -8,5 +8,5 @@ fi
 
 mkdir -p conv
 echo "1\n00:00:00,000 --> 00:99:99,000\n$2">conv/tmp.srt
-ffmpeg -i $1 -vf "subtitles=conv/tmp.srt:force_style='FontSize=42,Alignment=2'" -strict -2 -an -pix_fmt yuv420p conv/$1
+ffmpeg -i $1 -vf "subtitles=conv/tmp.srt:force_style='FontSize=42,Alignment=2'" -strict -2 -acodec copy -pix_fmt yuv420p conv/$1
 rm conv/tmp.srt
