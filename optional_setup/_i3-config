@@ -165,6 +165,20 @@ mode $shortcut{
 }
 bindsym $mod+u mode $shortcut
 
+# sound mode
+set $soundtest "sound mode"
+mode $soundtest{
+        bindsym j exec pactl set-sink-volume 0 -5%
+        bindsym k exec pactl set-sink-volume 0 +5%
+        bindsym Return exec pactl set-sink-mute 0 false
+        bindsym BackSpace exec pactl set-sink-mute 0 false
+
+        # back to normal
+        bindsym q mode "default"
+        bindsym Escape mode "default"
+}
+bindsym $mod+m mode $soundtest
+
 bar
 {
   status_command i3status
@@ -177,7 +191,12 @@ bar
 exec --no-startup-id x-terminal-emulator
 exec --no-startup-id fcitx
 exec --no-startup-id indicator-cpufreq
-# exec --no-startup-id compton --config ~/.config/compton/compton.conf
 exec --no-startup-id feh --bg-scale ~/_dotfiles/optional_setup/wallpaper/cave_story_running_hell.jpg
 exec --no-startup-id xset dpms 0 0 0; xset s off
+exec --no-startup-id volumeicon
+
+# for Laptop
+exec --no-startup-id nm-applet
+
+# exec --no-startup-id compton --config ~/.config/compton/compton.conf
 
