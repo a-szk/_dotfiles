@@ -8,4 +8,4 @@ if [ $# -ne 3 ]; then
 fi
 
 mkdir -p conv
-ffmpeg -i $1 -ss $2 -to $3 -strict -2 -an -pix_fmt yuv420p conv/$1 -y
+ffmpeg -i $1 -ss $2 -to $3 -strict -2 -acodec copy -pix_fmt yuv420p conv/$1 -y
