@@ -22,7 +22,7 @@ else
   set ambiwidth=double
   
   "オートインデント時のシフト幅(tabstopと同じにしておくといい)
-  set shiftwidth=4
+  set shiftwidth=2
   
   "foldが現時点で邪魔だと感じたため
   set nofoldenable
@@ -32,8 +32,8 @@ else
   set listchars=tab:»-,trail:-,eol:↲,extends:»,precedes:«,nbsp:%
   
   "set list
-  set tabstop=4
-  set shiftwidth=4
+  set tabstop=2
+  set shiftwidth=2
   set softtabstop=0
   set expandtab
   set smarttab
