@@ -1,3 +1,3 @@
-#!/bin/bassh
+#!/bin/bash
 
 # do nothing
