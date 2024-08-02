@@ -50,18 +50,18 @@ set clipboard=unnamed,unnamedplus
 
 "全角スペースをハイライト表示　
 function! ZenkakuSpace()
-	highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
+  highlight ZenkakuSpace cterm=reverse ctermfg=DarkMagenta gui=reverse guifg=DarkMagenta
 endfunction
 
 
 " 全角スペースの可視化
 if has('syntax')
-	augroup ZenkakuSpace
-		autocmd!
-		autocmd ColorScheme       * call ZenkakuSpace()
-		autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
-	augroup END
-	call ZenkakuSpace()
+  augroup ZenkakuSpace
+    autocmd!
+    autocmd ColorScheme       * call ZenkakuSpace()
+    autocmd VimEnter,WinEnter * match ZenkakuSpace /　/
+  augroup END
+  call ZenkakuSpace()
 endif
 let g:python_host_prog='/usr/bin/python2'
 let g:python3_host_prog='/usr/bin/python3'
@@ -71,13 +71,13 @@ set nocompatible
 filetype off
 
 if has('vim_starting')
-	if !has('nvim')
-		set runtimepath+=~/.vim/bundle/neobundle.vim
-		call neobundle#begin(expand('~/.vim/bundle/'))
-	else
-		set runtimepath+=~/.nvim/bundle/neobundle.vim
-		call neobundle#begin(expand('~/.nvim/bundle/'))
-	endif
+  if !has('nvim')
+    set runtimepath+=~/.vim/bundle/neobundle.vim
+    call neobundle#begin(expand('~/.vim/bundle/'))
+  else
+    set runtimepath+=~/.nvim/bundle/neobundle.vim
+    call neobundle#begin(expand('~/.nvim/bundle/'))
+  endif
 endif
 
 NeoBundleFetch 'Shougo/neobundle.vim'
@@ -98,15 +98,15 @@ syntax on
 
 "Neovim用の設定
 if has('nvim')
-	" 検索時のハイライト，ESCを連打したら消えるようにする
-	nnoremap <ESC><ESC> :nohl<CR>
+  " 検索時のハイライト，ESCを連打したら消えるようにする
+  nnoremap <ESC><ESC> :nohl<CR>
 
-	" terminal mode中にコマンドモードの戻るためのデフォルトのキーバインドが<C-\><C-n>と厳しいのでESCにする
-	tnoremap <silent> <ESC> <C-\><C-n>
+  " terminal mode中にコマンドモードの戻るためのデフォルトのキーバインドが<C-\><C-n>と厳しいのでESCにする
+  tnoremap <silent> <ESC> <C-\><C-n>
 endif
 
 if !has('gui_running')
-	set t_Co=256
+  set t_Co=256
 endif
 
 noremap <space> <Nop>
