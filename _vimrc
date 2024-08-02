@@ -159,7 +159,7 @@ nmap <C-f> <Nop>
 vmap <C-f> <Nop>
 
 " clang-format.vim
-" need clang-format-6.0 and executable link named `clang-format`
+" need clang-format-* and executable link named `clang-format`
 autocmd BufRead *.c,*.h,*.cpp,*.hpp let g:clang_format#style_options = {
             \ "Language" : "Cpp",
             \ "BasedOnStyle" : "Google",
