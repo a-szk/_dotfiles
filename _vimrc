@@ -76,9 +76,17 @@ if has('vim_starting')
   if !has('nvim')
     set runtimepath+=~/.vim/bundle/neobundle.vim
     call neobundle#begin(expand('~/.vim/bundle/'))
+    if has('persistent_undo')
+        set undodir=~/.vim/undo
+        set undofile
+    endif
   else
     set runtimepath+=~/.nvim/bundle/neobundle.vim
     call neobundle#begin(expand('~/.nvim/bundle/'))
+    if has('persistent_undo')
+        set undodir=~/.nvim/undo
+        set undofile
+    endif
   endif
 endif
 
