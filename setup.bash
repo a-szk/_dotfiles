@@ -35,8 +35,9 @@ sudo apt -y install git vim neovim xsel rename tree colordiff vlc ffmpeg byobu x
 source $optional_dir/optional_setup_apt_install.bash
 
 sudo mkdir -p $HOME/.config/nvim; sudo chown $user:$user $HOME/.config; sudo chown $user:$user $HOME/.config/nvim
-sudo mkdir -p $HOME/.nvim/bundle; sudo chown $user:$user $HOME/.nvim; sudo chown $user:$user $HOME/.nvim/bundle
-sudo mkdir -p $HOME/.vim/bundle; sudo chown $user:$user $HOME/.vim; sudo chown $user:$user $HOME/.vim/bundle
+sudo mkdir -p $HOME/.nvim/bundle; sudo mkdir -p $HOME/.nvim/undo; sudo chown $user:$user $HOME/.nvim; sudo chown $user:$user $HOME/.nvim/bundle; sudo chown $user:$user $HOME/.nvim/undo
+sudo mkdir -p $HOME/.vim/bundle; sudo mkdir -p $HOME/.vim/undo; sudo chown $user:$user $HOME/.vim; sudo chown $user:$user $HOME/.vim/bundle; sudo chown $user:$user $HOME/.vim/undo
+
 sudo mkdir -p $HOME/bin; sudo chown $user:$user $HOME/bin
 
 source $optional_dir/optional_setup_mkdir.bash
