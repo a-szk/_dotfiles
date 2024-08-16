@@ -9,6 +9,9 @@ fi
 user=`whoami`
 self_dir=$(cd $(dirname $0); pwd)
 optional_dir=$self_dir/optional_setup
+cd $self_dir
+git config user.name "a-szk"
+git config user.email "atsushisuzuki2k@gmail.com"
 cd $HOME
 
 DrawLine()
@@ -107,8 +110,8 @@ source $optional_dir/optional_setup_after_install.bash
 
 # for vim, nvim by root
 sudo mkdir -p /root/.config/nvim
-sudo mkdir -p /root/.nvim/
-sudo mkdir -p /root/.vim
+sudo mkdir -p /root/.nvim/undo
+sudo mkdir -p /root/.vim/undo
 sudo ln -sf $self_dir/_vimrc /root/.config/nvim/init.vim
 sudo ln -sf $self_dir/_vimrc /root/.vimrc
 sudo ln -sf $HOME/.nvim/bundle /root/.nvim/bundle
